@@ -70,6 +70,7 @@ namespace SPP9
                 {
                     Array.Copy(_items, i + 1, _items, i, _items.Length - (i + 1));
                     _items[_items.Length - 1] = default(T);
+                    _current--;
                 }
             }
         }
@@ -77,6 +78,7 @@ namespace SPP9
         {
             Array.Copy(_items, index + 1, _items, index, _items.Length - (index + 1));
             _items[_items.Length - 1] = default(T);
+            _current--;
         }
         public void Clear()
         {
@@ -105,6 +107,8 @@ namespace SPP9
             {
                 integer.Add(i);
             }
+            integer.Remove(4);
+            integer.RemoveAt(12);
             foreach (var item in integer)
             {
                 Console.WriteLine(item);
