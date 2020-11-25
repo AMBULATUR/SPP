@@ -113,8 +113,6 @@ namespace SPP9
             {
                 Console.WriteLine(item);
             }
-
-            Console.WriteLine("Hello World!");
         }
     }
 }
