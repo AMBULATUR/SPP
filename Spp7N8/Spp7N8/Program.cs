@@ -125,10 +125,6 @@ namespace Spp7N8
                 Console.ResetColor();
             }
         }
-       
-
-
-
     }
 
     class Program
