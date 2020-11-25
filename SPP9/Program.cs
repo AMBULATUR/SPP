@@ -48,7 +48,7 @@ namespace SPP9
         }
         private void EnsureCapacity(int min)
         {
-            if (_items.Length < min)
+            if (_items.Length <= min)
             {
                 int newCapacity = _items.Length == 0 ? defaultCapacity : _items.Length * 2;
                 if ((uint)newCapacity > System.Int32.MaxValue) newCapacity = System.Int32.MaxValue;
@@ -85,13 +85,14 @@ namespace SPP9
 
         public IEnumerator<T> GetEnumerator()
         {
-            while (GetEnumerator().MoveNext())
-                yield return GetEnumerator().Current;
+            int i = 0;
+            while (i != _current)
+                yield return _items[i++];
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return _items.GetEnumerator();
+            return GetEnumerator();
         }
     }
     class Program
